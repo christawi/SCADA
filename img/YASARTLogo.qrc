@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="YASARTLogo">
+    <file>YASARTLogo.jpg</file>
+  </qresource>
+</RCC>

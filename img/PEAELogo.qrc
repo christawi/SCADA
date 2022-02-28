@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="PEAELogo">
+    <file>PEAELogo.jpg</file>
+  </qresource>
+</RCC>
