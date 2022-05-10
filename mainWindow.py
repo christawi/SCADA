@@ -201,21 +201,23 @@ class Main(QMainWindow):
         newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
         self.cirProg_6.setStyleSheet(newStlesheet)
 #######################################################################################################
-### modus comunication functions
+### modbus comunication functions
     
     def connect(self):
+        print("connect")
         self.client=ModbusSerialClient(method='rtu',port='COM1',stopbits=1,bytesize=8,parity='N',baudrate=9600)
-        self.client.connect()
-        print(self.client.connect())
+        # self.client.connect()
         # if (self.client.connect()== True):
         self.conStatus = True
+        self.connectStatus.setStyleSheet("color:rgb(120, 255, 50);background-color: rgba(0, 0, 0, 0);")
         self.connectStatus.setText('Connecting through COM1')
         self.modbusConnect.setText('Disconnect')
-        self.connectStatus.setStyleSheet("color:rgb(0, 255, 0);background-color: rgba(0, 0, 0, 0);")
         self.readModbusThread = threading.Thread(name="readModbusThread",target=self.readModbus)
         self.readModbusThread.start()
+        time.sleep(.1)
         self.valueUpdateThread = threading.Thread(name="valueUpdateThread",target=self.valueUpdate)
         self.valueUpdateThread.start()
+        time.sleep(.1)
         self.statusUpdateThread = threading.Thread(name="statusUpdateThread",target=self.statusUpdate)
         self.statusUpdateThread.start()
         # else:
@@ -224,13 +226,14 @@ class Main(QMainWindow):
         #     self.connectStatus.setStyleSheet("color:rgb(255, 0, 0);background-color: rgba(0, 0, 0, 0);")
 
     def disconnect(self):
+        print("disconnect")
         self.conStatus = False
         self.client.close()
         self.modbusConnect.setText('Connect')
         self.connectStatus.setText('Disconnected')
         self.connectStatus.setStyleSheet("color:rgb(0, 255, 0);background-color: rgba(0, 0, 0, 0);")
+        time.sleep(.1)
         
-
     def readModbus(self):
         while (self.conStatus == True):
             try:
@@ -264,7 +267,7 @@ class Main(QMainWindow):
                 self.c= self.modbusData.registers[8]
                 self.d= self.modbusData.registers[9]
             except:
-                print("Coudn't update data")
+                print("Coudn't update value")
             time.sleep(1)
 
 ### status change with the registry data
