@@ -5,8 +5,8 @@ from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget
 from PyQt5 import QtCore
 from pymodbus.client.sync import ModbusSerialClient
 import os, threading, time
-
-
+from connection import Connection
+from dialog import AboutYASART, AboutPEAE
 ### main window 
 class Main(QMainWindow):
     conStatus = False
@@ -31,6 +31,8 @@ class Main(QMainWindow):
         self.aboutYASARTButton.clicked.connect(self.callAboutYASART)
         self.aboutPEAEButton.clicked.connect(self.callAboutPEAE)
         self.modbusConnect.clicked.connect(self.connectOrDisconnect)
+
+        self.connection = Connection()
 
 ### Connection button control function
     def connectOrDisconnect(self):
@@ -204,58 +206,56 @@ class Main(QMainWindow):
 ### modbus comunication functions
     
     def connect(self):
-        print("connect")
-        self.client=ModbusSerialClient(method='rtu',port='COM1',stopbits=1,bytesize=8,parity='N',baudrate=9600)
-        # self.client.connect()
-        # if (self.client.connect()== True):
-        self.conStatus = True
         self.connectStatus.setStyleSheet("color:rgb(120, 255, 50);background-color: rgba(0, 0, 0, 0);")
         self.connectStatus.setText('Connecting through COM1')
-        self.modbusConnect.setText('Disconnect')
-        self.readModbusThread = threading.Thread(name="readModbusThread",target=self.readModbus)
-        self.readModbusThread.start()
-        time.sleep(.1)
+        self.connection.start()
+        time.sleep(0.1)
+        if self.connection.connection_live() and self.connection.is_com_connected():
+            self.modbusConnect.setText('Disconnect')
+            self.connectStatus.setText('Connected')
+            self.connectStatus.setStyleSheet("color:rgb(0, 255, 0);background-color: rgba(0, 0, 0, 0);")
+            self.conStatus = True
+        else:
+            self.connectStatus.setText('Failed to connect')
+            return
         self.valueUpdateThread = threading.Thread(name="valueUpdateThread",target=self.valueUpdate)
         self.valueUpdateThread.start()
-        time.sleep(.1)
         self.statusUpdateThread = threading.Thread(name="statusUpdateThread",target=self.statusUpdate)
         self.statusUpdateThread.start()
-        # else:
-        #     self.userMode = 'none'
-        #     self.connectStatus.setText('Could not connect')
-        #     self.connectStatus.setStyleSheet("color:rgb(255, 0, 0);background-color: rgba(0, 0, 0, 0);")
 
     def disconnect(self):
-        print("disconnect")
+        self.connection.disconnect()
+        del self.connection
+        self.connection = Connection()
         self.conStatus = False
-        self.client.close()
+
         self.modbusConnect.setText('Connect')
         self.connectStatus.setText('Disconnected')
         self.connectStatus.setStyleSheet("color:rgb(0, 255, 0);background-color: rgba(0, 0, 0, 0);")
-        time.sleep(.1)
-        
-    def readModbus(self):
-        while (self.conStatus == True):
-            try:
-                self.modbusData=self.client.read_holding_registers(address=0,count=10,unit=1)
-                self.client.write_register(address=1,value=1,unit=1)
-                self.connectStatus.setText('Connected')
-                self.connectStatus.setStyleSheet("color:rgb(0, 255, 0);background-color: rgba(0, 0, 0, 0);")
-                print(self.modbusData.registers)
-    
-            except:
-                self.connectStatus.setText("Modbus Connection Error")
-                self.connectStatus.setStyleSheet("color:rgb(255, 0, 0);background-color: rgba(0, 0, 0, 0);")
-                print("Modbus Connection Error")
-            if self.conStatus == False:
-                break
-                print("Modbus Break")    
-            time.sleep(1)
+
+        self.valueUpdateThread.join()
+        self.statusUpdateThread.join()
+
+
+    def durring_exit():
+        self.connection.disconnect()
 
 #######################################################################################################
     def valueUpdate(self):
+        update_label = False
         while (self.conStatus == True):
-            try:
+            self.modbusData = self.connection.data()
+            if self.modbusData == None:
+                self.connectStatus.setText("Modbus Connection Error")
+                self.connectStatus.setStyleSheet("color:rgb(255, 0, 0);background-color: rgba(0, 0, 0, 0);")
+                update_label = True
+            else:
+                print(self.modbusData.registers)
+                if update_label:
+                    self.connectStatus.setText('Connected')
+                    self.connectStatus.setStyleSheet("color:rgb(0, 255, 0);background-color: rgba(0, 0, 0, 0);")
+                    update_label = False
+
                 self.sPump1status= self.modbusData.registers[0]
                 self.sPump2status= self.modbusData.registers[1]
                 self.sPump3status= self.modbusData.registers[2]
@@ -266,8 +266,6 @@ class Main(QMainWindow):
                 self.b= self.modbusData.registers[7]
                 self.c= self.modbusData.registers[8]
                 self.d= self.modbusData.registers[9]
-            except:
-                print("Coudn't update value")
             time.sleep(1)
 
 ### status change with the registry data
@@ -301,24 +299,3 @@ class Main(QMainWindow):
             except:
                 print("Coudn't update data")
             time.sleep(1)
-
-
-
-
-
-
-
-
-
-
-
-#######################################################################################################
-class AboutYASART(QDialog):
-    def __init__(self):
-        super(AboutYASART, self).__init__()
-        loadUi("AboutYASART.ui", self)
-
-class AboutPEAE(QDialog):
-    def __init__(self):
-        super(AboutPEAE, self).__init__()
-        loadUi("AboutPEAE.ui", self)
