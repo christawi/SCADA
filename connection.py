@@ -31,6 +31,9 @@ class Connection:
     def connection_live(self):
         return self.connection.is_alive()
 
+    def write_value(self, address, value, unit):
+        self.connection.send_data(address, value, unit)
+        
 class Connection_thread(Thread):
     def __init__(self, client):
         self.modbus_data_value = None
@@ -42,7 +45,6 @@ class Connection_thread(Thread):
         while (not self.event.is_set()):
             try:
                 self.modbusData=self.client.read_holding_registers(address=512,count=10,unit=1)
-                self.client.write_register(address=1,value=1,unit=1)
                 self.modbus_data_value = self.modbusData
             except:
                 self.modbus_data_value = None 
@@ -51,3 +53,6 @@ class Connection_thread(Thread):
 
     def update(self):
         return self.modbus_data_value
+    
+    def send_data(self, address, value, unit):
+        self.client.write_register(address=address,value=value,unit=unit)

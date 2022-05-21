@@ -46,6 +46,7 @@ class Main(QMainWindow):
     def callAboutYASART(self):
         self.main = AboutYASART()
         self.main.show()
+        
     def callAboutPEAE(self):
         self.main = AboutPEAE()
         self.main.show()
