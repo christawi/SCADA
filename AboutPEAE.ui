@@ -43,6 +43,54 @@
    </property>
    <item>
     <widget class="QScrollArea" name="scrollArea">
+     <property name="styleSheet">
+      <string notr="true">QScrollBar:vertical{
+border: none;
+background-color: rgba(212, 212, 212,212);
+width: 12px;
+margin: 12px 1px 12px 1px;
+border-radius: 0px;
+}
+QScrollBar::handle:vertical{
+border: none;
+background-color: rgba(200,200,200,100);
+border-radius: 4px;
+}
+QScrollBar::handle:vertical:hover{
+background-color: rgba(172, 5, 5,100);
+}
+QScrollBar::handle:vertical:pressed{
+background-color: rgba(172, 5, 5,150);
+}
+QScrollBar::sub-line:vertical{
+border: none;
+background-color: rgba(200,200,200,255);
+height: 12px;
+border-radius: 5.5px;
+subcontrol-position: top;
+subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover{
+background-color: rgba(172, 5, 5,100);
+}
+QScrollBar::sub-line:vertical:pressed{
+background-color: rgba(172, 5, 5,150);
+}
+QScrollBar::add-line:vertical{
+border: none;
+background-color: rgba(200,200,200,255);
+height: 12px;
+border-radius: 5.5px;
+subcontrol-position: bottom;
+subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover{
+background-color: rgba(172, 5, 5,100);
+}
+QScrollBar::add-line:vertical:pressed{
+background-color: rgba(172, 5, 5,150);
+}</string>
+     </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
@@ -56,7 +104,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-1000</y>
+        <y>0</y>
         <width>700</width>
         <height>1650</height>
        </rect>
