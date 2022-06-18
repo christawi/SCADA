@@ -52,10 +52,10 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>100</x>
       <y>50</y>
-      <width>301</width>
-      <height>121</height>
+      <width>151</width>
+      <height>131</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -65,7 +65,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>img/YASARTLogo.jpg</pixmap>
+     <pixmap>img/AASTULogo.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
