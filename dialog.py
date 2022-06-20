@@ -6,7 +6,7 @@ class AboutYASART(QDialog):
     def __init__(self):
         super(AboutYASART, self).__init__()
         loadUi("AboutYASART.ui", self)
-
+        
 class AboutPEAE(QDialog):
     def __init__(self):
         super(AboutPEAE, self).__init__()

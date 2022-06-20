@@ -34,7 +34,8 @@ class Connection:
         return self.connection.is_alive()
 
     def write_value(self, address, value, unit):
-        self.connection.send_data(self, 41, 10, 1)
+        print("written value ", address, value)
+        self.connection.send_data(address, value, unit)
         
 class Connection_thread(Thread):
     def __init__(self, client):
@@ -61,5 +62,4 @@ class Connection_thread(Thread):
         return self.modbus_data_value
     
     def send_data(self, address, value, unit):
-        self.client.write_coil(address=address,value=value,unit=unit)
-        self.client.write_register(address=41,value=10,unit=1)
+        self.client.write_register(address=address,value=value,unit=unit)

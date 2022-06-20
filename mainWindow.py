@@ -1,4 +1,3 @@
-#from __future__ import print_function
 import sys
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget
@@ -15,11 +14,7 @@ class Main(QMainWindow):
         loadUi("main.ui", self)
 ### Initialization
         self.headerLabel.setText('ACTIVITY')
-        
-        self.SPump3Value(0, 0)
-        self.VPump1Value(75, 95)
-        self.VPump2Value(0, 0)
-        self.VPump3Value(0, 0)
+    
 ### navigation for stacked widget
         self.menuButton.clicked.connect(self.slider)
         self.activityButton.clicked.connect(lambda:(self.stackedWidget.setCurrentWidget(self.activityPage),self.headerLabel.setText('ACTIVITY')))
@@ -64,98 +59,7 @@ class Main(QMainWindow):
         self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
         self.animation.start()
 
-#########################################################################################################
-### circular indicators status SPump3
-    def SPump3Value(self, flow, pressure):
-        styleSheet = """
-            QFrame{
-                border-radius: 100px;
-                background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
-            }
-        """
-### set flow meter value
-        flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
-        newFlowValue = flowValue.replace("{Value}", str(flow))
-        self.progValue5.setText(newFlowValue)
-### set pressure meter value
-        flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
-        newPressureValue = flowValue.replace("{Value}", str(pressure))
-        self.progValue6.setText(newPressureValue)
-### set circular pogress bar value
-        progress = (40-flow)/40.0
-        Stop1 = str(progress - .001)
-        Stop2 = str(progress)
-        newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
-        self.cirProg3.setStyleSheet(newStlesheet)
-
-### circular indicators status VPump1
-    def VPump1Value(self, flow, pressure):
-        styleSheet = """
-            QFrame{
-                border-radius: 100px;
-                background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
-            }
-        """
-### set flow meter value
-        flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
-        newFlowValue = flowValue.replace("{Value}", str(flow))
-        self.progValue7.setText(newFlowValue)
-### set pressure meter value
-        flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
-        newPressureValue = flowValue.replace("{Value}", str(pressure))
-        self.progValue8.setText(newPressureValue)
-### set circular pogress bar value
-        progress = (80-flow)/80.0
-        Stop1 = str(progress - .001)
-        Stop2 = str(progress)
-        newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
-        self.cirProg4.setStyleSheet(newStlesheet)
-
-### circular indicators status VPump2
-    def VPump2Value(self, flow, pressure):
-        styleSheet = """
-            QFrame{
-                border-radius: 100px;
-                background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
-            }
-        """
-### set flow meter value
-        flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
-        newFlowValue = flowValue.replace("{Value}", str(flow))
-        self.progValue9.setText(newFlowValue)
-### set pressure meter value
-        flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
-        newPressureValue = flowValue.replace("{Value}", str(pressure))
-        self.progValue10.setText(newPressureValue)
-### set circular pogress bar value
-        progress = (60-flow)/60.0
-        Stop1 = str(progress - .001)
-        Stop2 = str(progress)
-        newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
-        self.cirProg5.setStyleSheet(newStlesheet)        
-
-### circular indicators status VPump3
-    def VPump3Value(self, flow, pressure):
-        styleSheet = """
-            QFrame{
-                border-radius: 100px;
-                background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
-            }
-        """
-### set flow meter value
-        flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
-        newFlowValue = flowValue.replace("{Value}", str(flow))
-        self.progValue11.setText(newFlowValue)
-### set pressure meter value
-        flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
-        newPressureValue = flowValue.replace("{Value}", str(pressure))
-        self.progValue12.setText(newPressureValue)
-### set circular pogress bar value
-        progress = (60-flow)/60.0
-        Stop1 = str(progress - .001)
-        Stop2 = str(progress)
-        newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
-        self.cirProg6.setStyleSheet(newStlesheet)
+#######################################################################################################
 #######################################################################################################
 ### modbus comunication functions
     
@@ -178,8 +82,8 @@ class Main(QMainWindow):
         self.statusUpdateThread.start()
         self.senderThread = threading.Thread(name="senderThread",target=self.sender)
         self.senderThread.start()
-        self.SPump1ValueThread = threading.Thread(name="SPump1ValueThread",target=self.SPump1Value)
-        self.SPump1ValueThread.start()
+        self.updateScreenThread = threading.Thread(name="updateScreenThread",target=self.updateScreen)
+        self.updateScreenThread.start()
 
     def disconnect(self):
         self.connection.disconnect()
@@ -194,7 +98,7 @@ class Main(QMainWindow):
         self.valueUpdateThread.join()
         self.statusUpdateThread.join()
         self.senderThread.join()
-        self.SPump1ValueThread.join()
+        self.updateScreenThread.join()
 
 
     def durring_exit():
@@ -205,6 +109,7 @@ class Main(QMainWindow):
         update_label = False
         while (self.conStatus == True):
             self.modbusData = self.connection.data()
+            
             if self.modbusData == None:
                 self.connectStatus.setText("Modbus Connection Error")
                 self.connectStatus.setStyleSheet("color:rgb(255, 0, 0);background-color: rgba(0, 0, 0, 0);")
@@ -303,15 +208,16 @@ class Main(QMainWindow):
     def sender(self):
         while (self.conStatus == True):
             try:
-                self.client.write_registers(address= 39, values= 11, unit= 1)
+                self.connection.write_value(50, int(self.dial.value()), 1)
             except:
-                print(self.dial.value())
-            time.sleep(1)
-    ##################################################################        
-    def SPump1Value(self):
-        # self.SPump1Flow = 10
-        # self.SPump1Pres = 10
+                print("couldn't send data")
+            time.sleep(2)
+################################################################## 
+       
+    def updateScreen(self):
+### set pogress value of Spump 1
         while (self.conStatus == True):
+            
             try:
                 styleSheet = """
                 QFrame{
@@ -319,34 +225,44 @@ class Main(QMainWindow):
                     background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
                 }
                 """
-### set flow meter1 value 
-                flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
-                newFlowValue = flowValue.replace("{Value}", str(self.SPump1Flow))
-                self.progValue1.setText(newFlowValue)
-### set pressure meter1 value
-                flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
-                newPressureValue = flowValue.replace("{Value}", str(self.SPump1Pres))
-                self.progValue2.setText(newPressureValue)
-### set pressure chart1 value
-                # flowValue = """<p><span style=" font-size:11pt;">Voltage</span></p><p><span style=" font-size:11pt;">A-B: </span><span style=" font-size:11pt; font-weight:400;">120V</span></p><p><span style=" font-size:11pt;">B-C: </span><span style=" font-size:11pt; font-weight:400;">120V</span></p><p><span style=" font-size:11pt;">C-D: </span><span style=" font-size:11pt; font-weight:400;">120V</span></p><p><span style=" font-size:11pt;">Current: </span><span style=" font-size:11pt; font-weight:400;">10A</span></p><p><span style=" font-size:11pt;">Flow: </span><span style=" font-size:11pt; font-weight:400;">100m</span><span style=" font-size:11pt; font-weight:400; vertical-align:super;">3</span><span style=" font-size:11pt; font-weight:400;">/hr</span></p><p><span style=" font-size:11pt;">Level: </span><span style=" font-size:11pt; font-weight:400;">50meters</span></p><p><span style=" font-size:11pt;">Conductivity: </span><span style=" font-size:11pt; font-weight:400;">200µS/cm</span></p><p><span style=" font-size:11pt;">Pressure: </span><span style=" font-size:11pt; font-weight:400;">100Kpa</span></p>"""
-                # newPressureValue = flowValue.replace("{Value}", str(self.SPump1Pres))
-                # self.progValue2.setText(newPressureValue)
-### set circular pogress bar1 value
-                progress = (40-self.SPump1Flow)/40.0
+                progress = (120-self.SPump1Flow)/120.0
                 Stop1 = str(progress - .001)
                 Stop2 = str(progress)
                 newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
                 self.cirProg.setStyleSheet(newStlesheet)
-### set flow meter2 value 
+### set flow
+                flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.SPump1Flow))
+                self.progValue1.setText(newFlowValue)
+### set pressure
+                flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
+                newPressureValue = flowValue.replace("{Value}", str(self.SPump1Pres))
+                self.progValue2.setText(newPressureValue)
+                time.sleep(.001)
+### set pogress value of Spump 2
+                styleSheet = """
+                QFrame{
+                    border-radius: 100px;
+                    background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
+                }
+                """
+                progress = (120-self.SPump2Flow)/120.0
+                Stop1 = str(progress - .001)
+                Stop2 = str(progress)
+                newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
+                self.cirProg2.setStyleSheet(newStlesheet)
+### set flow
                 flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
                 newFlowValue = flowValue.replace("{Value}", str(self.SPump2Flow))
                 self.progValue3.setText(newFlowValue)
-### set pressure meter1 value
+### set pressure
                 flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
                 newPressureValue = flowValue.replace("{Value}", str(self.SPump2Pres))
-                self.progValue4.setText(newPressureValue)
+                self.progValueT.setText(newPressureValue)
+                time.sleep(.002)
             except:
-                print("Coudn't update data")
-            time.sleep(1)
-########################
+                print("Coudn't update screen")
+            time.sleep(.5)
+###################################################################################################
 
+# progValueT

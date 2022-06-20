@@ -493,6 +493,31 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sarala'; font-size:10pt; color:#000000; background-color:transparent;&quot;&gt;We prioritize the ethical principles like honesty, loyalty, trustworthiness and respect for others&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
+         <widget class="QLabel" name="progValueT">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>160</y>
+            <width>159</width>
+            <height>58</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>36</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(129, 0, 0);
+background-color: rgba(0, 0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>&lt;p&gt;&lt;span style=&quot; color:#430000;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; color:#430000; vertical-align:super;&quot;&gt;L/s&lt;/span&gt;&lt;/p&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
