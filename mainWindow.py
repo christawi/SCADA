@@ -25,7 +25,6 @@ class Main(QMainWindow):
         self.aboutYASARTButton.clicked.connect(self.callAboutYASART)
         self.aboutPEAEButton.clicked.connect(self.callAboutPEAE)
         self.modbusConnect.clicked.connect(self.connectOrDisconnect)
-        self.dial1 = self.dial.value()
         self.connection = Connection()
 
 ### Connection button control function
@@ -67,7 +66,7 @@ class Main(QMainWindow):
         self.connectStatus.setStyleSheet("color:rgb(120, 255, 50);background-color: rgba(0, 0, 0, 0);")
         self.connectStatus.setText('Connecting through COM1')
         self.connection.start()
-        time.sleep(0.1)
+        time.sleep(1)
         if self.connection.connection_live() and self.connection.is_com_connected():
             self.modbusConnect.setText('Disconnect')
             self.connectStatus.setText('Connected')
@@ -121,24 +120,54 @@ class Main(QMainWindow):
                     self.connectStatus.setStyleSheet("color:rgb(0, 255, 0);background-color: rgba(0, 0, 0, 0);")
                     update_label = False
 
-                self.sPump1status= self.modbusData.registers[0]
-                self.sPump2status= self.modbusData.registers[1]
-                self.sPump3status= self.modbusData.registers[2]
-                self.sPump4status= self.modbusData.registers[3]
-                self.sPump5status= self.modbusData.registers[4]
-                self.sPump6status= self.modbusData.registers[5]                
-                self.sPump7status= self.modbusData.registers[6]                                
-                self.sPump8status= self.modbusData.registers[7]
-                self.hPump1status= self.modbusData.registers[8]
-                self.hPump2status= self.modbusData.registers[9]
-                self.hPump3status= self.modbusData.registers[10]
-                self.hPump4status= self.modbusData.registers[11]
-                self.hPump5status= self.modbusData.registers[12]
-                self.hPump6status= self.modbusData.registers[13]
-                self.SPump1Flow= self.modbusData.registers[14]
-                self.SPump1Pres= self.modbusData.registers[15]
-                self.SPump2Flow= self.modbusData.registers[16]
-                self.SPump2Pres= self.modbusData.registers[17]
+                self.sPump1status= self.modbusData.registers[4]
+                self.sPump2status= self.modbusData.registers[5]
+                self.sPump3status= self.modbusData.registers[6]
+                self.sPump4status= self.modbusData.registers[7]
+                self.hPump1status= self.modbusData.registers[15]
+                self.hPump2status= self.modbusData.registers[16]
+                self.hPump3status= self.modbusData.registers[17]
+                self.hPump4status= self.modbusData.registers[18]
+                self.SPump1Level= self.modbusData.registers[0]
+                self.SPump2Level= self.modbusData.registers[1]
+                self.SPump3Level= self.modbusData.registers[2]
+                self.SPump4Level= self.modbusData.registers[3]
+                self.SPump1Flow= self.modbusData.registers[11]
+                self.SPump2Flow= self.modbusData.registers[12]
+                self.SPump3Flow= self.modbusData.registers[13]
+                self.SPump4Flow= self.modbusData.registers[14]
+                self.SPump1Pres= self.modbusData.registers[19]
+                self.SPump2Pres= self.modbusData.registers[20]
+                self.SPump3Pres= self.modbusData.registers[21]
+                self.SPump4Pres= self.modbusData.registers[22]
+                self.SPump1Curr= self.modbusData.registers[27]
+                self.SPump2Curr= self.modbusData.registers[28]
+                self.SPump3Curr= self.modbusData.registers[29]
+                self.SPump4Curr= self.modbusData.registers[30]
+                self.SPump1Volt= self.modbusData.registers[35]
+                self.SPump2Volt= self.modbusData.registers[36]
+                self.SPump3Volt= self.modbusData.registers[37]
+                self.SPump4Volt= self.modbusData.registers[38]
+                self.SPump1Cond= self.modbusData.registers[43]
+                self.SPump2Cond= self.modbusData.registers[44]
+                self.SPump3Cond= self.modbusData.registers[45]
+                self.SPump4Cond= self.modbusData.registers[46]
+                self.HPump1Flow= self.modbusData.registers[51]
+                self.HPump2Flow= self.modbusData.registers[52]
+                self.HPump3Flow= self.modbusData.registers[53]
+                self.HPump4Flow= self.modbusData.registers[54]
+                self.HPump1Pres= self.modbusData.registers[57]
+                self.HPump2Pres= self.modbusData.registers[58]
+                self.HPump3Pres= self.modbusData.registers[59]
+                self.HPump4Pres= self.modbusData.registers[60]
+                self.HPump1Curr= self.modbusData.registers[63]
+                self.HPump2Curr= self.modbusData.registers[64]
+                self.HPump3Curr= self.modbusData.registers[65]
+                self.HPump4Curr= self.modbusData.registers[66]
+                self.HPump1Volt= self.modbusData.registers[69]
+                self.HPump2Volt= self.modbusData.registers[70]
+                self.HPump3Volt= self.modbusData.registers[71]
+                self.HPump4Volt= self.modbusData.registers[72]
             time.sleep(1)
 
 ### status change with the registry data
@@ -161,22 +190,6 @@ class Main(QMainWindow):
                     self.sPump4.setEnabled(False)
                 else:
                     self.sPump4.setEnabled(True)
-                if (self.sPump5status == 0):
-                    self.sPump5.setEnabled(False)
-                else:
-                    self.sPump5.setEnabled(True)
-                if (self.sPump6status == 0):
-                    self.sPump6.setEnabled(False)
-                else:
-                    self.sPump6.setEnabled(True)
-                if (self.sPump7status == 0):
-                    self.sPump7.setEnabled(False)
-                else:
-                    self.sPump7.setEnabled(True)
-                if (self.sPump8status == 0):
-                    self.sPump8.setEnabled(False)
-                else:
-                    self.sPump8.setEnabled(True)
                 if (self.hPump1status == 0):
                     self.hPump1.setEnabled(False)
                 else:
@@ -193,29 +206,30 @@ class Main(QMainWindow):
                     self.hPump4.setEnabled(False)
                 else:
                     self.hPump4.setEnabled(True)
-                if (self.hPump5status == 0):
-                    self.hPump5.setEnabled(False)
-                else:
-                    self.hPump5.setEnabled(True)
-                if (self.hPump6status == 0):
-                    self.hPump6.setEnabled(False)
-                else:
-                    self.hPump6.setEnabled(True)
-
             except:
                 print("Coudn't update data")
             time.sleep(1)
+
     def sender(self):
         while (self.conStatus == True):
             try:
-                self.connection.write_value(50, int(self.dial.value()), 1)
+                self.connection.write_value(602, int(self.dial.value()), 1)
+                self.connection.write_value(603, int(self.dial2.value()), 1)
+                self.connection.write_value(604, int(self.dial3.value()), 1)
+                self.connection.write_value(605, int(self.dial4.value()), 1)
+                self.connection.write_value(606, int(self.dial5.value()), 1)
+                self.connection.write_value(607, int(self.dial6.value()), 1)
+                self.connection.write_value(608, int(self.dial7.value()), 1)
+                self.connection.write_value(609, int(self.dial8.value()), 1)
+                self.connection.write_value(610, int(self.dial9.value()), 1)
+                self.connection.write_value(611, int(self.dial10.value()), 1)
             except:
                 print("couldn't send data")
-            time.sleep(2)
-################################################################## 
+            time.sleep(1)
+############################################################################################################
        
     def updateScreen(self):
-### set pogress value of Spump 1
+####### set pogress value of Spump 1
         while (self.conStatus == True):
             
             try:
@@ -225,7 +239,7 @@ class Main(QMainWindow):
                     background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
                 }
                 """
-                progress = (120-self.SPump1Flow)/120.0
+                progress = (400-self.SPump1Flow)/400.0
                 Stop1 = str(progress - .001)
                 Stop2 = str(progress)
                 newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
@@ -238,15 +252,19 @@ class Main(QMainWindow):
                 flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
                 newPressureValue = flowValue.replace("{Value}", str(self.SPump1Pres))
                 self.progValue2.setText(newPressureValue)
-                time.sleep(.001)
-### set pogress value of Spump 2
+### set all
+                flowValue = """<p><span style=" font-size:11pt;">Voltage</span></p><p><span style=" font-size:11pt;">A-B: </span><span style=" font-size:11pt; font-weight:400;">{Value}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">B-C: </span><span style=" font-size:11pt; font-weight:400;">{Value1}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">C-D: </span><span style=" font-size:11pt; font-weight:400;">{Value2}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">Current: </span><span style=" font-size:11pt; font-weight:400;">{Value3}</span><span style=" font-size:11pt;">A</span></p><p><span style=" font-size:11pt;">Flow: </span><span style=" font-size:11pt; font-weight:400;">{Value4}</span><span style=" font-size:11pt;">m</span><span style=" font-size:11pt; vertical-align:super;">3</span><span style=" font-size:11pt;">/hr</span></p><p><span style=" font-size:11pt;">Level: </span><span style=" font-size:11pt; font-weight:400;">{Value5}</span><span style=" font-size:11pt;">meters</span></p><p><span style=" font-size:11pt;">Conductivity: </span><span style=" font-size:11pt; font-weight:400;">{Value6}</span><span style=" font-size:11pt;">µS/cm</span></p><p><span style=" font-size:11pt;">Head: </span><span style=" font-size:11pt; font-weight:400;">{Value7}</span><span style=" font-size:11pt;">Kpa</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.SPump1Volt)).replace("{Value1}", str(self.SPump1Volt)).replace("{Value2}", str(self.SPump1Volt)).replace("{Value3}", str(self.SPump1Curr)).replace("{Value4}", str(self.SPump1Flow)).replace("{Value5}", str(self.SPump1Level)).replace("{Value6}", str(self.SPump1Cond)).replace("{Value7}", str(self.SPump1Pres))
+                self.progressTable_1.setText(newFlowValue)
+                time.sleep(.01)
+############### set pogress value of Spump 2
                 styleSheet = """
                 QFrame{
                     border-radius: 100px;
                     background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
                 }
                 """
-                progress = (120-self.SPump2Flow)/120.0
+                progress = (400-self.SPump2Flow)/400.0
                 Stop1 = str(progress - .001)
                 Stop2 = str(progress)
                 newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
@@ -258,11 +276,116 @@ class Main(QMainWindow):
 ### set pressure
                 flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
                 newPressureValue = flowValue.replace("{Value}", str(self.SPump2Pres))
-                self.progValueT.setText(newPressureValue)
-                time.sleep(.002)
+                self.progValue4.setText(newPressureValue)
+### set all
+                flowValue = """<p><span style=" font-size:11pt;">Voltage</span></p><p><span style=" font-size:11pt;">A-B: </span><span style=" font-size:11pt; font-weight:400;">{Value}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">B-C: </span><span style=" font-size:11pt; font-weight:400;">{Value1}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">C-D: </span><span style=" font-size:11pt; font-weight:400;">{Value2}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">Current: </span><span style=" font-size:11pt; font-weight:400;">{Value3}</span><span style=" font-size:11pt;">A</span></p><p><span style=" font-size:11pt;">Flow: </span><span style=" font-size:11pt; font-weight:400;">{Value4}</span><span style=" font-size:11pt;">m</span><span style=" font-size:11pt; vertical-align:super;">3</span><span style=" font-size:11pt;">/hr</span></p><p><span style=" font-size:11pt;">Level: </span><span style=" font-size:11pt; font-weight:400;">{Value5}</span><span style=" font-size:11pt;">meters</span></p><p><span style=" font-size:11pt;">Conductivity: </span><span style=" font-size:11pt; font-weight:400;">{Value6}</span><span style=" font-size:11pt;">µS/cm</span></p><p><span style=" font-size:11pt;">Head: </span><span style=" font-size:11pt; font-weight:400;">{Value7}</span><span style=" font-size:11pt;">Kpa</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.SPump2Volt)).replace("{Value1}", str(self.SPump2Volt)).replace("{Value2}", str(self.SPump2Volt)).replace("{Value3}", str(self.SPump2Curr)).replace("{Value4}", str(self.SPump2Flow)).replace("{Value5}", str(self.SPump2Level)).replace("{Value6}", str(self.SPump2Cond)).replace("{Value7}", str(self.SPump2Pres))
+                self.progressTable_2.setText(newFlowValue)
+                time.sleep(.02)
+############### set pogress value of Spump 3
+                styleSheet = """
+                QFrame{
+                    border-radius: 100px;
+                    background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
+                }
+                """
+                progress = (400-self.SPump3Flow)/400.0
+                Stop1 = str(progress - .001)
+                Stop2 = str(progress)
+                newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
+                self.cirProg3.setStyleSheet(newStlesheet)
+### set flow
+                flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.SPump3Flow))
+                self.progValue5.setText(newFlowValue)
+### set pressure
+                flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
+                newPressureValue = flowValue.replace("{Value}", str(self.SPump3Pres))
+                self.progValue6.setText(newPressureValue)
+### set all
+                flowValue = """<p><span style=" font-size:11pt;">Voltage</span></p><p><span style=" font-size:11pt;">A-B: </span><span style=" font-size:11pt; font-weight:400;">{Value}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">B-C: </span><span style=" font-size:11pt; font-weight:400;">{Value1}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">C-D: </span><span style=" font-size:11pt; font-weight:400;">{Value2}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">Current: </span><span style=" font-size:11pt; font-weight:400;">{Value3}</span><span style=" font-size:11pt;">A</span></p><p><span style=" font-size:11pt;">Flow: </span><span style=" font-size:11pt; font-weight:400;">{Value4}</span><span style=" font-size:11pt;">m</span><span style=" font-size:11pt; vertical-align:super;">3</span><span style=" font-size:11pt;">/hr</span></p><p><span style=" font-size:11pt;">Level: </span><span style=" font-size:11pt; font-weight:400;">{Value5}</span><span style=" font-size:11pt;">meters</span></p><p><span style=" font-size:11pt;">Conductivity: </span><span style=" font-size:11pt; font-weight:400;">{Value6}</span><span style=" font-size:11pt;">µS/cm</span></p><p><span style=" font-size:11pt;">Head: </span><span style=" font-size:11pt; font-weight:400;">{Value7}</span><span style=" font-size:11pt;">Kpa</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.SPump3Volt)).replace("{Value1}", str(self.SPump3Volt)).replace("{Value2}", str(self.SPump3Volt)).replace("{Value3}", str(self.SPump3Curr)).replace("{Value4}", str(self.SPump3Flow)).replace("{Value5}", str(self.SPump3Level)).replace("{Value6}", str(self.SPump3Cond)).replace("{Value7}", str(self.SPump3Pres))
+                self.progressTable_3.setText(newFlowValue)
+                time.sleep(.03)
+############################################
+############### set pogress value of Hpump 1
+                styleSheet = """
+                QFrame{
+                    border-radius: 100px;
+                    background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
+                }
+                """
+                progress = (500-self.SPump1Flow)/500.0
+                Stop1 = str(progress - .001)
+                Stop2 = str(progress)
+                newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
+                self.cirProg4.setStyleSheet(newStlesheet)
+### set flow
+                flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.HPump1Flow))
+                self.progValue7.setText(newFlowValue)
+### set pressure
+                flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
+                newPressureValue = flowValue.replace("{Value}", str(self.HPump1Pres))
+                self.progValue8.setText(newPressureValue)
+### set all
+                flowValue = """<p><span style=" font-size:11pt;">Voltage</span></p><p><span style=" font-size:11pt;">A-B: </span><span style=" font-size:11pt; font-weight:400;">{Value}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">B-C: </span><span style=" font-size:11pt; font-weight:400;">{Value1}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">C-D: </span><span style=" font-size:11pt; font-weight:400;">{Value2}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">Current: </span><span style=" font-size:11pt; font-weight:400;">{Value3}</span><span style=" font-size:11pt;">A</span></p><p><span style=" font-size:11pt;">Flow: </span><span style=" font-size:11pt; font-weight:400;">{Value4}</span><span style=" font-size:11pt;">m</span><span style=" font-size:11pt; vertical-align:super;">3</span><span style=" font-size:11pt;">/hr</span></p><p><span style=" font-size:11pt;">Head: </span><span style=" font-size:11pt; font-weight:400;">{Value7}</span><span style=" font-size:11pt;">Kpa</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.HPump1Volt)).replace("{Value1}", str(self.HPump1Volt)).replace("{Value2}", str(self.HPump1Volt)).replace("{Value3}", str(self.HPump1Curr)).replace("{Value4}", str(self.HPump1Flow)).replace("{Value7}", str(self.HPump1Pres))
+                self.progressTable_4.setText(newFlowValue)
+                time.sleep(.04)
+############### set pogress value of Hpump 2
+                styleSheet = """
+                QFrame{
+                    border-radius: 100px;
+                    background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
+                }
+                """
+                progress = (500-self.SPump2Flow)/500.0
+                Stop1 = str(progress - .001)
+                Stop2 = str(progress)
+                newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
+                self.cirProg5.setStyleSheet(newStlesheet)
+### set flow
+                flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.HPump2Flow))
+                self.progValue9.setText(newFlowValue)
+### set pressure
+                flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
+                newPressureValue = flowValue.replace("{Value}", str(self.HPump2Pres))
+                self.progValue10.setText(newPressureValue)
+### set all
+                flowValue = """<p><span style=" font-size:11pt;">Voltage</span></p><p><span style=" font-size:11pt;">A-B: </span><span style=" font-size:11pt; font-weight:400;">{Value}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">B-C: </span><span style=" font-size:11pt; font-weight:400;">{Value1}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">C-D: </span><span style=" font-size:11pt; font-weight:400;">{Value2}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">Current: </span><span style=" font-size:11pt; font-weight:400;">{Value3}</span><span style=" font-size:11pt;">A</span></p><p><span style=" font-size:11pt;">Flow: </span><span style=" font-size:11pt; font-weight:400;">{Value4}</span><span style=" font-size:11pt;">m</span><span style=" font-size:11pt; vertical-align:super;">3</span><span style=" font-size:11pt;">/hr</span></p><p><span style=" font-size:11pt;">Head: </span><span style=" font-size:11pt; font-weight:400;">{Value7}</span><span style=" font-size:11pt;">Kpa</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.HPump1Volt)).replace("{Value1}", str(self.HPump1Volt)).replace("{Value2}", str(self.HPump1Volt)).replace("{Value3}", str(self.HPump1Curr)).replace("{Value4}", str(self.HPump1Flow)).replace("{Value7}", str(self.HPump1Pres))
+                self.progressTable_5.setText(newFlowValue)
+                time.sleep(.05)
+############### set pogress value of Hpump 3
+                styleSheet = """
+                QFrame{
+                    border-radius: 100px;
+                    background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{stop1} rgba(0, 0, 8, 0), stop:{stop2} rgba(129, 0, 0, 255));
+                }
+                """
+                progress = (500-self.SPump3Flow)/500.0
+                Stop1 = str(progress - .001)
+                Stop2 = str(progress)
+                newStlesheet = styleSheet.replace("{stop1}", Stop1).replace("{stop2}", Stop2)
+                self.cirProg3.setStyleSheet(newStlesheet)
+### set flow
+                flowValue = """<p><span style=" color:#430000;">{Value}</span><span style=" color:#430000; vertical-align:super;">L/s</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.HPump3Flow))
+                self.progValue11.setText(newFlowValue)
+### set pressure
+                flowValue = """<p><span style=" font-size:24pt; color:#430000;">{Value}</span><span style=" font-size:20pt; color:#430000;">Kpa</span></p>"""
+                newPressureValue = flowValue.replace("{Value}", str(self.HPump3Pres))
+                self.progValue12.setText(newPressureValue)
+### set all
+                flowValue = """<p><span style=" font-size:11pt;">Voltage</span></p><p><span style=" font-size:11pt;">A-B: </span><span style=" font-size:11pt; font-weight:400;">{Value}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">B-C: </span><span style=" font-size:11pt; font-weight:400;">{Value1}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">C-D: </span><span style=" font-size:11pt; font-weight:400;">{Value2}</span><span style=" font-size:11pt;">V</span></p><p><span style=" font-size:11pt;">Current: </span><span style=" font-size:11pt; font-weight:400;">{Value3}</span><span style=" font-size:11pt;">A</span></p><p><span style=" font-size:11pt;">Flow: </span><span style=" font-size:11pt; font-weight:400;">{Value4}</span><span style=" font-size:11pt;">m</span><span style=" font-size:11pt; vertical-align:super;">3</span><span style=" font-size:11pt;">/hr</span></p><p><span style=" font-size:11pt;">Head: </span><span style=" font-size:11pt; font-weight:400;">{Value7}</span><span style=" font-size:11pt;">Kpa</span></p>"""
+                newFlowValue = flowValue.replace("{Value}", str(self.HPump1Volt)).replace("{Value1}", str(self.HPump1Volt)).replace("{Value2}", str(self.HPump1Volt)).replace("{Value3}", str(self.HPump1Curr)).replace("{Value4}", str(self.HPump1Flow)).replace("{Value7}", str(self.HPump1Pres))
+                self.progressTable_6.setText(newFlowValue)
+                time.sleep(.06)
             except:
                 print("Coudn't update screen")
             time.sleep(.5)
 ###################################################################################################
 
-# progValueT
+

@@ -5,8 +5,8 @@ from threading import Thread, Event
 class Connection:
     def __init__(self):
         self.modbusData = None
-        # self.client=ModbusSerialClient(method='rtu',port='COM8',stopbits=1,bytesize=8,parity='N',baudrate=19200)
-        self.client=ModbusSerialClient(method='rtu',port='COM1',stopbits=1,bytesize=8,parity='N',baudrate=19200)
+        # self.client=ModbusSerialClient(method='rtu',port='COM1',stopbits=1,bytesize=8,parity='N',baudrate=19200)
+        self.client=ModbusSerialClient(method='rtu',port='COM8',stopbits=1,bytesize=8,parity='N',baudrate=19200)
         self.connection = Connection_thread(self.client)
         self.com_connected = False
 
@@ -48,11 +48,9 @@ class Connection_thread(Thread):
     def run(self):      
         while (not self.event.is_set()):
             try:
-                self.modbusData=self.client.read_holding_registers(address=0,count=40,unit=1)
+                self.modbusData=self.client.read_holding_registers(address=512,count=100,unit=1)
+                # self.modbusData=self.client.read_coils(address=1536,count=40,unit=1)
                 self.modbus_data_value = self.modbusData
-                # self.client.write_registers(address= 39, values= int(self.sendVal), unit= 1)
-                # self.client.write_registers(address= 39, values=int(self.dial.value()), unit= 1)
-                #self.client.write_coil(address=1538,value=1,unit=1)
             except:
                 self.modbus_data_value = None 
     def stop(self):

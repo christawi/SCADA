@@ -431,6 +431,62 @@ padding-top:3px;
            </size>
           </property>
          </widget>
+         <widget class="QLabel" name="connectStatus">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>100</y>
+            <width>251</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgba(0, 0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="modbusConnect">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>70</y>
+            <width>141</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>140</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 15px;
+color: rgb(255, 255, 255);
+}
+QPushButton:hover{
+background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:pressed{
+padding-top:3px;
+}</string>
+          </property>
+          <property name="text">
+           <string>Connect</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -620,7 +676,7 @@ background-color: rgba(0, 0, 0,0);
           </size>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="activityPage">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1282,7 +1338,7 @@ background-color: rgba(0, 0, 0,0);
               </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(129, 0, 0);
-background-color: rgb(255, 255, 255);
+background-color: rgba(0, 0, 0, 0);
 border-radius: 10px</string>
               </property>
               <property name="text">
@@ -1310,7 +1366,7 @@ border-radius: 10px</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(129, 0, 0);
-background-color: rgb(255, 255, 255);
+background-color: rgba(0, 0, 0, 0);
 border-radius: 10px</string>
               </property>
               <property name="text">
@@ -1338,7 +1394,7 @@ border-radius: 10px</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(129, 0, 0);
-background-color: rgb(255, 255, 255);
+background-color: rgba(0, 0, 0, 0);
 border-radius: 10px</string>
               </property>
               <property name="text">
@@ -1366,7 +1422,7 @@ border-radius: 10px</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(129, 0, 0);
-background-color: rgb(255, 255, 255);
+background-color: rgba(0, 0, 0, 0);
 border-radius: 10px</string>
               </property>
               <property name="text">
@@ -1394,7 +1450,7 @@ border-radius: 10px</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(129, 0, 0);
-background-color: rgb(255, 255, 255);
+background-color: rgba(0, 0, 0, 0);
 border-radius: 10px</string>
               </property>
               <property name="text">
@@ -1422,7 +1478,7 @@ border-radius: 10px</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(129, 0, 0);
-background-color: rgb(255, 255, 255);
+background-color: rgba(0, 0, 0, 0);
 border-radius: 10px</string>
               </property>
               <property name="text">
@@ -1607,7 +1663,7 @@ background-color: rgb(85, 170, 255);
 border-radius: 10px</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HBPump 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;SPump 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -1658,7 +1714,7 @@ background-color: qlineargradient(spread:pad, x1:0.426455, y1:1, x2:0.427, y2:0.
 border-radius: 10px;</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Level: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;50meters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Conductivity: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;200µS/cm&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Pressure: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Level: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;50&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;meters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Conductivity: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;200&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;µS/cm&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Head: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1808,7 +1864,7 @@ background-color: rgb(85, 170, 255);
 border-radius: 10px</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HBPump 4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HBPump 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -1859,7 +1915,7 @@ background-color: qlineargradient(spread:pad, x1:0.426455, y1:1, x2:0.427, y2:0.
 border-radius: 10px</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Level: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;50meters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Conductivity: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;200µS/cm&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Pressure: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Head: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2009,7 +2065,7 @@ background-color: rgb(85, 170, 255);
 border-radius: 10px</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HBPump 6&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HBPump 3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -2060,7 +2116,7 @@ background-color: qlineargradient(spread:pad, x1:0.426455, y1:1, x2:0.427, y2:0.
 border-radius: 10px</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Level: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;50meters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Conductivity: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;200µS/cm&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Pressure: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Head: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2210,7 +2266,7 @@ background-color: rgb(85, 170, 255);
 border-radius: 10px</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HBPump 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;SPump 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -2261,7 +2317,7 @@ background-color: qlineargradient(spread:pad, x1:0.426455, y1:1, x2:0.427, y2:0.
 border-radius: 10px</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Level: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;50meters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Conductivity: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;200µS/cm&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Pressure: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Level: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;50&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;meters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Conductivity: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;200&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;µS/cm&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Head: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2411,7 +2467,7 @@ background-color: rgb(85, 170, 255);
 border-radius: 10px</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HBPump 3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;SPump 3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -2462,7 +2518,7 @@ background-color: qlineargradient(spread:pad, x1:0.426455, y1:1, x2:0.427, y2:0.
 border-radius: 10px</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Level: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;50meters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Conductivity: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;200µS/cm&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Pressure: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Level: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;50&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;meters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Conductivity: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;200&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;µS/cm&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Head: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2612,7 +2668,7 @@ background-color: rgb(85, 170, 255);
 border-radius: 10px</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HBPump 5&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HBPump 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -2663,7 +2719,7 @@ background-color: qlineargradient(spread:pad, x1:0.426455, y1:1, x2:0.427, y2:0.
 border-radius: 10px</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Level: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;50meters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Conductivity: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;200µS/cm&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Pressure: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A-B: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;B-C: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;C-D: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;120&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;V&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Current: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;10&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;A&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Flow: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;/hr&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Head: &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:400;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Kpa&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2681,748 +2737,500 @@ border-radius: 10px</string>
           </layout>
          </widget>
          <widget class="QWidget" name="controlPage">
-          <widget class="QPushButton" name="modbusConnect">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>610</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>Connect</string>
-           </property>
-          </widget>
           <widget class="QDial" name="dial">
            <property name="geometry">
             <rect>
-             <x>60</x>
-             <y>50</y>
+             <x>120</x>
+             <y>160</y>
              <width>121</width>
              <height>101</height>
             </rect>
            </property>
           </widget>
-          <widget class="QLabel" name="connectStatus">
+          <widget class="QDial" name="dial2">
            <property name="geometry">
             <rect>
-             <x>170</x>
-             <y>610</y>
-             <width>251</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgba(0, 0, 0, 0);</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="modbusConnect_3">
-           <property name="geometry">
-            <rect>
-             <x>50</x>
-             <y>150</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>SPump1 Start</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="modbusConnect_4">
-           <property name="geometry">
-            <rect>
-             <x>220</x>
-             <y>150</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>SPump2 Start</string>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_3">
-           <property name="geometry">
-            <rect>
-             <x>230</x>
-             <y>50</y>
+             <x>330</x>
+             <y>160</y>
              <width>121</width>
              <height>101</height>
             </rect>
            </property>
           </widget>
-          <widget class="QPushButton" name="modbusConnect_5">
+          <widget class="QDial" name="dial3">
            <property name="geometry">
             <rect>
-             <x>560</x>
-             <y>150</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>SPump4 Start</string>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_4">
-           <property name="geometry">
-            <rect>
-             <x>400</x>
-             <y>50</y>
+             <x>540</x>
+             <y>160</y>
              <width>121</width>
              <height>101</height>
             </rect>
            </property>
           </widget>
-          <widget class="QPushButton" name="modbusConnect_6">
-           <property name="geometry">
-            <rect>
-             <x>390</x>
-             <y>150</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>SPump3 Start</string>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_5">
-           <property name="geometry">
-            <rect>
-             <x>570</x>
-             <y>50</y>
-             <width>121</width>
-             <height>101</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_6">
-           <property name="geometry">
-            <rect>
-             <x>1090</x>
-             <y>50</y>
-             <width>121</width>
-             <height>101</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_7">
+          <widget class="QDial" name="dial4">
            <property name="geometry">
             <rect>
              <x>750</x>
-             <y>50</y>
+             <y>160</y>
              <width>121</width>
              <height>101</height>
             </rect>
            </property>
           </widget>
-          <widget class="QPushButton" name="modbusConnect_8">
+          <widget class="QDial" name="dial7">
+           <property name="geometry">
+            <rect>
+             <x>530</x>
+             <y>420</y>
+             <width>121</width>
+             <height>101</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QDial" name="dial5">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>420</y>
+             <width>121</width>
+             <height>101</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QDial" name="dial6">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>420</y>
+             <width>121</width>
+             <height>101</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QDial" name="dial10">
+           <property name="geometry">
+            <rect>
+             <x>1090</x>
+             <y>420</y>
+             <width>121</width>
+             <height>101</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QDial" name="dial8">
            <property name="geometry">
             <rect>
              <x>740</x>
-             <y>150</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>SPump5 Start</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="modbusConnect_9">
-           <property name="geometry">
-            <rect>
-             <x>910</x>
-             <y>150</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>SPump6 Start</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="modbusConnect_10">
-           <property name="geometry">
-            <rect>
-             <x>1080</x>
-             <y>150</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>SPump7 Start</string>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_9">
-           <property name="geometry">
-            <rect>
-             <x>920</x>
-             <y>50</y>
+             <y>420</y>
              <width>121</width>
              <height>101</height>
             </rect>
            </property>
           </widget>
-          <widget class="QPushButton" name="modbusConnect_7">
+          <widget class="QDial" name="dial9">
            <property name="geometry">
             <rect>
-             <x>40</x>
-             <y>400</y>
-             <width>141</width>
+             <x>1090</x>
+             <y>160</y>
+             <width>121</width>
+             <height>101</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLabel" name="progressTable_7">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>40</y>
+             <width>291</width>
              <height>41</height>
             </rect>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
            <property name="font">
             <font>
-             <pointsize>10</pointsize>
+             <pointsize>12</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: rgba(0, 0, 0, 0);
+border-radius: 10px;</string>
            </property>
            <property name="text">
-            <string>SPump8 Start</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Submersible Pump Valves&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
            </property>
           </widget>
-          <widget class="QDial" name="dial_10">
-           <property name="geometry">
-            <rect>
-             <x>910</x>
-             <y>300</y>
-             <width>121</width>
-             <height>101</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_8">
-           <property name="geometry">
-            <rect>
-             <x>740</x>
-             <y>300</y>
-             <width>121</width>
-             <height>101</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="modbusConnect_11">
-           <property name="geometry">
-            <rect>
-             <x>730</x>
-             <y>400</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>HBPump4 Start</string>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_11">
-           <property name="geometry">
-            <rect>
-             <x>390</x>
-             <y>300</y>
-             <width>121</width>
-             <height>101</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_12">
+          <widget class="QLabel" name="progressTable_8">
            <property name="geometry">
             <rect>
              <x>50</x>
+             <y>90</y>
+             <width>181</width>
+             <height>171</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.915045, y2:0.552, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Valve 1&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="progressTable_9">
+           <property name="geometry">
+            <rect>
+             <x>260</x>
+             <y>90</y>
+             <width>181</width>
+             <height>171</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.915045, y2:0.552, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Valve 2&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="progressTable_10">
+           <property name="geometry">
+            <rect>
+             <x>470</x>
+             <y>90</y>
+             <width>181</width>
+             <height>171</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.915045, y2:0.552, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Valve 3&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="progressTable_11">
+           <property name="geometry">
+            <rect>
+             <x>680</x>
+             <y>90</y>
+             <width>181</width>
+             <height>171</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.915045, y2:0.552, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Valve 4&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="progressTable_12">
+           <property name="geometry">
+            <rect>
+             <x>680</x>
+             <y>350</y>
+             <width>181</width>
+             <height>171</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.915045, y2:0.552, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Valve 4&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="progressTable_13">
+           <property name="geometry">
+            <rect>
+             <x>50</x>
+             <y>350</y>
+             <width>181</width>
+             <height>171</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.915045, y2:0.552, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Valve 1&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="progressTable_14">
+           <property name="geometry">
+            <rect>
+             <x>260</x>
+             <y>350</y>
+             <width>181</width>
+             <height>171</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.915045, y2:0.552, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Valve 2&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="progressTable_15">
+           <property name="geometry">
+            <rect>
+             <x>470</x>
+             <y>350</y>
+             <width>181</width>
+             <height>171</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.915045, y2:0.552, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Valve 3&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="progressTable_16">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
              <y>300</y>
-             <width>121</width>
-             <height>101</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="modbusConnect_12">
-           <property name="geometry">
-            <rect>
-             <x>1070</x>
-             <y>400</y>
-             <width>141</width>
+             <width>351</width>
              <height>41</height>
             </rect>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
            <property name="font">
             <font>
-             <pointsize>10</pointsize>
+             <pointsize>12</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: rgba(0, 0, 0, 0);
+border-radius: 10px;</string>
            </property>
            <property name="text">
-            <string>HBPump6 Start</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Hroizontal Booster Pump Valves&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
            </property>
           </widget>
-          <widget class="QPushButton" name="modbusConnect_13">
+          <widget class="QLabel" name="progressTable_17">
            <property name="geometry">
             <rect>
-             <x>550</x>
-             <y>400</y>
-             <width>141</width>
-             <height>41</height>
+             <x>1020</x>
+             <y>90</y>
+             <width>181</width>
+             <height>171</height>
             </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
            </property>
            <property name="font">
             <font>
-             <pointsize>10</pointsize>
+             <pointsize>12</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.915045, y2:0.552, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;</string>
            </property>
            <property name="text">
-            <string>HBPump3 Start</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CT-5 to Koye&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
            </property>
           </widget>
-          <widget class="QPushButton" name="modbusConnect_14">
+          <widget class="QLabel" name="progressTable_18">
            <property name="geometry">
             <rect>
-             <x>900</x>
-             <y>400</y>
-             <width>141</width>
-             <height>41</height>
+             <x>1020</x>
+             <y>350</y>
+             <width>181</width>
+             <height>171</height>
             </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
            </property>
            <property name="font">
             <font>
-             <pointsize>10</pointsize>
+             <pointsize>12</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
+            <string notr="true">color: rgb(129, 0, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.915045, y2:0.552, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;</string>
            </property>
            <property name="text">
-            <string>HBPump5 Start</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Koye to AASTU&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>10</number>
            </property>
           </widget>
-          <widget class="QDial" name="dial_13">
-           <property name="geometry">
-            <rect>
-             <x>1080</x>
-             <y>300</y>
-             <width>121</width>
-             <height>101</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_14">
-           <property name="geometry">
-            <rect>
-             <x>560</x>
-             <y>300</y>
-             <width>121</width>
-             <height>101</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="modbusConnect_15">
-           <property name="geometry">
-            <rect>
-             <x>210</x>
-             <y>400</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>HBPump1 Start</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="modbusConnect_16">
-           <property name="geometry">
-            <rect>
-             <x>380</x>
-             <y>400</y>
-             <width>141</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:0.994, x2:1, y2:1, stop:0 rgba(129, 0, 0, 225), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-top:3px;
-}</string>
-           </property>
-           <property name="text">
-            <string>HBPump2 Start</string>
-           </property>
-          </widget>
-          <widget class="QDial" name="dial_15">
-           <property name="geometry">
-            <rect>
-             <x>220</x>
-             <y>300</y>
-             <width>121</width>
-             <height>101</height>
-            </rect>
-           </property>
-          </widget>
+          <zorder>progressTable_7</zorder>
+          <zorder>progressTable_8</zorder>
+          <zorder>dial</zorder>
+          <zorder>progressTable_9</zorder>
+          <zorder>dial2</zorder>
+          <zorder>progressTable_10</zorder>
+          <zorder>dial3</zorder>
+          <zorder>progressTable_11</zorder>
+          <zorder>dial4</zorder>
+          <zorder>progressTable_12</zorder>
+          <zorder>progressTable_13</zorder>
+          <zorder>progressTable_14</zorder>
+          <zorder>progressTable_15</zorder>
+          <zorder>dial6</zorder>
+          <zorder>dial5</zorder>
+          <zorder>dial8</zorder>
+          <zorder>dial7</zorder>
+          <zorder>progressTable_16</zorder>
+          <zorder>progressTable_17</zorder>
+          <zorder>dial9</zorder>
+          <zorder>progressTable_18</zorder>
+          <zorder>dial10</zorder>
          </widget>
          <widget class="QWidget" name="warningPage"/>
          <widget class="QWidget" name="authPage"/>
