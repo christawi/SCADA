@@ -11,3 +11,7 @@ class AboutPEAE(QDialog):
     def __init__(self):
         super(AboutPEAE, self).__init__()
         loadUi("AboutPEAE.ui", self)
+class AboutAASTU(QDialog):
+    def __init__(self):
+        super(AboutAASTU, self).__init__()
+        loadUi("AboutAASTU.ui", self)

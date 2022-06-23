@@ -4,8 +4,11 @@ from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget
 from PyQt5 import QtCore
 from pymodbus.client.sync import ModbusSerialClient
 import os, threading, time
+from datetime import datetime
 from connection import Connection
-from dialog import AboutYASART, AboutPEAE
+import sqlite3
+from CreateDb import Database
+from dialog import AboutYASART, AboutPEAE, AboutAASTU
 ### main window 
 class Main(QMainWindow):
     
@@ -23,10 +26,11 @@ class Main(QMainWindow):
         self.controlButton.clicked.connect(lambda:(self.stackedWidget.setCurrentWidget(self.controlPage),self.headerLabel.setText('CONTROL')))
         self.warningButton.clicked.connect(lambda:(self.stackedWidget.setCurrentWidget(self.warningPage),self.headerLabel.setText('WARNING')))
         self.authButton.clicked.connect(lambda:(self.stackedWidget.setCurrentWidget(self.authPage),self.headerLabel.setText('AUTH')))
-        self.aboutYASARTButton.clicked.connect(self.callAboutYASART)
+        self.aboutYASARTButton.clicked.connect(self.callAboutAASTU)
         self.aboutPEAEButton.clicked.connect(self.callAboutPEAE)
         self.modbusConnect.clicked.connect(self.connectOrDisconnect)
         self.connection = Connection()
+        self.Data = Database()
 
 ### Connection button control function
     def connectOrDisconnect(self):
@@ -43,6 +47,10 @@ class Main(QMainWindow):
         
     def callAboutPEAE(self):
         self.main = AboutPEAE()
+        self.main.show()
+
+    def callAboutAASTU(self):
+        self.main = AboutAASTU()
         self.main.show()
 
 ### slider for menu
@@ -175,6 +183,39 @@ class Main(QMainWindow):
                 self.CumSFlow= (self.SPump1Flow+self.SPump2Flow+self.SPump3Flow+self.SPump4Flow)
                 self.CumHFlow= (self.HPump1Flow+self.HPump2Flow+self.HPump3Flow+self.HPump4Flow)
 
+                x = datetime.now()
+                date=x.strftime("%d/%m/%Y %I:%M:%S %p")
+                # #############################################
+                conn=sqlite3.connect("WSSSDB.db")
+                cur = conn.cursor()
+
+                sumb1 = (self.SPump1Volt,self.SPump1Volt,self.SPump1Volt,self.SPump1Curr,self.SPump1Cond,self.SPump1Level,self.SPump1Pres,self.SPump1Flow,1,date)
+                sqlite_insertS = """INSERT INTO SPumps
+                          (voltage_A_B,voltage_B_C,voltage_C_A,current,conductivity,level,pressure,flow,equip_id,log_time) 
+                          VALUES (?,?,?,?,?,?,?,?,?,?);"""
+                cur.execute(sqlite_insertS,sumb1)
+                
+                sumb2 = (self.SPump2Volt,self.SPump2Volt,self.SPump2Volt,self.SPump2Curr,self.SPump2Cond,self.SPump2Level,self.SPump2Pres,self.SPump2Flow,2,date)
+                cur.execute(sqlite_insertS,sumb2)
+                sumb3 = (self.SPump3Volt,self.SPump3Volt,self.SPump3Volt,self.SPump3Curr,self.SPump3Cond,self.SPump3Level,self.SPump3Pres,self.SPump3Flow,3,date)
+                cur.execute(sqlite_insertS,sumb3)
+                sumb4 = (self.SPump4Volt,self.SPump4Volt,self.SPump4Volt,self.SPump4Curr,self.SPump4Cond,self.SPump4Level,self.SPump4Pres,self.SPump4Flow,4,date)
+                cur.execute(sqlite_insertS,sumb4)
+
+
+                Hori1=(self.HPump1Volt,self.HPump1Volt,self.HPump1Volt,self.HPump1Curr,self.HPump1Flow,self.HPump1Pres,10,date)
+
+                sqlite_insertH = """INSERT INTO HBPumps
+                                          (voltage_A_B,voltage_B_C,voltage_C_A,current,flow,pressure,equip_id,log_time) 
+                                          VALUES (?,?,?,?,?,?,?,?);"""
+                cur.execute(sqlite_insertH,Hori1)
+                Hori2=(self.HPump2Volt,self.HPump2Volt,self.HPump2Volt,self.HPump2Curr,self.HPump2Flow,self.HPump2Pres,11,date)
+                cur.execute(sqlite_insertH,Hori2)
+                Hori3=(self.HPump3Volt,self.HPump3Volt,self.HPump3Volt,self.HPump3Curr,self.HPump3Flow,self.HPump3Pres,12,date)
+                cur.execute(sqlite_insertH,Hori3)
+
+                conn.commit()
+                conn.close()
 
             time.sleep(1)
 
