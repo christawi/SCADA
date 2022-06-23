@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AboutYASARTScreen</class>
+ <widget class="QDialog" name="AboutYASARTScreen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>620</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>620</width>
+    <height>650</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>620</width>
+    <height>650</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>About AASTU</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="styleSheet">
+      <string notr="true">QScrollBar:vertical{
+border: none;
+background-color: rgba(212, 212, 212,212);
+width: 12px;
+margin: 12px 1px 12px 1px;
+border-radius: 0px;
+}
+QScrollBar::handle:vertical{
+border: none;
+background-color: rgba(200,200,200,100);
+border-radius: 4px;
+}
+QScrollBar::handle:vertical:hover{
+background-color: rgba(172, 5, 5,100);
+}
+QScrollBar::handle:vertical:pressed{
+background-color: rgba(172, 5, 5,150);
+}
+QScrollBar::sub-line:vertical{
+border: none;
+background-color: rgba(200,200,200,255);
+height: 12px;
+border-radius: 5.5px;
+subcontrol-position: top;
+subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover{
+background-color: rgba(172, 5, 5,100);
+}
+QScrollBar::sub-line:vertical:pressed{
+background-color: rgba(172, 5, 5,150);
+}
+QScrollBar::add-line:vertical{
+border: none;
+background-color: rgba(200,200,200,255);
+height: 12px;
+border-radius: 5.5px;
+subcontrol-position: bottom;
+subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover{
+background-color: rgba(172, 5, 5,100);
+}
+QScrollBar::add-line:vertical:pressed{
+background-color: rgba(172, 5, 5,150);
+}
+</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>718</width>
+        <height>1018</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="widget" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>620</width>
+           <height>1000</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.529, y1:0.971591, x2:0.472, y2:0.784364, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+         </property>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>20</y>
+            <width>181</width>
+            <height>131</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>img/AASTULogo.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="Line" name="line">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>170</y>
+            <width>341</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QTextBrowser" name="textBrowser">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>250</y>
+            <width>571</width>
+            <height>161</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);
+border: 0px</string>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Roboto,sans-serif'; font-size:10pt; color:#000000; background-color:#ffffff;&quot;&gt;The concept of Addis Ababa Science and Technology University had a direct and reasonable connection with the Five-Year Growth and Transformation Plan (2010-2015) of the government of the Federal Democratic Republic of Ethiopia. As it was stated in the plan, the establishment of well institutionalized and strong science and technology universities and institutes of technology will serve as a cornerstone to build an economically developed and industrialized state of Ethiopia. As a result, AASTU was founded in 2011 under the Directive of the Council of Ministers No. 216/2011 by admitting the first batch (2000 students) in November 2011.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QTextBrowser" name="textBrowser_2">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>200</y>
+            <width>141</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);
+border: 0px</string>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Oswald'; font-size:14pt; font-weight:600; color:#303030; background-color:#ffffff;&quot;&gt;About AASTU&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QTextBrowser" name="textBrowser_7">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>390</y>
+            <width>561</width>
+            <height>141</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);
+border: 0px</string>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#810000;&quot;&gt;Mission&lt;/span&gt;&lt;/p&gt;
+&lt;ul type=&quot;square&quot; style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-size:10pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Delivering world-class education and training in strategically priority science and technology disciplines based on national economic demand, &lt;/li&gt;
+&lt;li style=&quot; font-size:10pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Conducting problem-solving applied research to support the productivity and competitiveness of industries, &lt;/li&gt;
+&lt;li style=&quot; font-size:10pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Serving as a center for knowledge and technological adaptation, innovation and transfer, &lt;/li&gt;
+&lt;li style=&quot; font-size:10pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Building technical and managerial capabilities of industries, and &lt;/li&gt;
+&lt;li style=&quot; font-size:10pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Becoming a national hub of science and technology.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QTextBrowser" name="textBrowser_3">
+          <property name="geometry">
+           <rect>
+            <x>214</x>
+            <y>560</y>
+            <width>201</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);
+border: 0px</string>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Oswald'; font-size:14pt; font-weight:600; color:#303030; background-color:#ffffff;&quot;&gt;About The Project&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QTextBrowser" name="textBrowser_4">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>600</y>
+            <width>571</width>
+            <height>361</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);
+border: 0px</string>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri,sans-serif'; font-size:11pt;&quot;&gt;Even though Addis Ababa is the capital city of Ethiopia, there are many water supply problems around the city. The major factor that contributed for this problem is the lack of a proper automation and monitoring function to the system. The major objective of this project is to implement a Supervisory Control and Data Acquisition (SCADA) driven automation and monitoring system to the AKAKI-KALITY (CT-5) sub-city water distribution system. Even though a SCADA system was implemented on the system earlier by foreign companies, most of its function is not working due to lack of skilled personnel who can diagnose and maintain the system. During peak consumption periods, which may last for weeks, water is not delivered to wide areas and the resources are not distributed evenly to public. Operators try hard to achieve fairness by manually controlling gate valves along with pumping stations (after the SCADA system malfunctioned). Therefore, to overcome these problems, a locally made SCADA system is applied at the pumping station within the scope of our project - the network from the 8 bore holes to the CT-5 reservoir, then from the CT-5 reservoir to KOYE reservoir and finally form KOYE-reservoir to the Addis Ababa Science and Technology University (AASTU) reservoir. The SCADA system is expected to increase customer satisfaction, reduce water distribution cost and provide an accurate overview of the plant’s operations. Furthermore, SCADA stores valuable information about the water system performance; and this data is necessary for efficient development of the existent distribution system in a way that met population growth.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

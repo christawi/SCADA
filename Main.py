@@ -18,7 +18,7 @@ class Login(QDialog):
     def checkAut(self):
         self.userName=self.UserName.text()
         self.password=self.Password.text()
-        if ((self.userName=='') & (self.password =='')):
+        if ((self.userName=='adm') & (self.password =='adm')):
             self.userMode = 'admin'
             self.main = Main()
             self.main.show()

@@ -99,49 +99,6 @@
           <property name="rightMargin">
            <number>20</number>
           </property>
-          <item row="2" column="0">
-           <widget class="QPushButton" name="meterButton">
-            <property name="minimumSize">
-             <size>
-              <width>140</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.715182, y2:0.608, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.789, y2:0.715818, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-left:2px;
-padding-top:3px;
-}</string>
-            </property>
-            <property name="text">
-             <string>Meter    </string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/compass.svg</normaloff>icons/compass.svg</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>25</width>
-              <height>25</height>
-             </size>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="0">
            <widget class="QPushButton" name="activityButton">
             <property name="minimumSize">
@@ -185,8 +142,8 @@ padding-top:3px;
             </property>
            </widget>
           </item>
-          <item row="6" column="0">
-           <widget class="QPushButton" name="authButton">
+          <item row="2" column="0">
+           <widget class="QPushButton" name="meterButton">
             <property name="minimumSize">
              <size>
               <width>140</width>
@@ -214,11 +171,11 @@ padding-top:3px;
 }</string>
             </property>
             <property name="text">
-             <string>Auth.   </string>
+             <string>Meter    </string>
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>icons/unlock.svg</normaloff>icons/unlock.svg</iconset>
+              <normaloff>icons/compass.svg</normaloff>icons/compass.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -284,8 +241,11 @@ padding-top:3px;
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="QPushButton" name="warningButton">
+          <item row="7" column="0">
+           <widget class="QPushButton" name="authButton">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="minimumSize">
              <size>
               <width>140</width>
@@ -300,24 +260,44 @@ padding-top:3px;
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QPushButton{
-background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.715182, y2:0.608, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 15px;
-}
-QPushButton:hover{
-background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0.789, y2:0.715818, stop:0 rgba(129, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-}
-QPushButton:pressed{
-padding-left:2px;
-padding-top:3px;
-}</string>
+             <string notr="true">background-color: rgba(255, 255, 255,0);
+color: rgba(255, 255, 255,0);</string>
+            </property>
+            <property name="text">
+             <string>Auth.   </string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QPushButton" name="warningButton">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>140</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgba(255, 255, 255,0);
+color: rgba(255, 255, 255,0);</string>
             </property>
             <property name="text">
              <string>Warning</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/alert-octagon.svg</normaloff>icons/alert-octagon.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -434,9 +414,9 @@ padding-top:3px;
          <widget class="QLabel" name="connectStatus">
           <property name="geometry">
            <rect>
-            <x>50</x>
+            <x>62</x>
             <y>100</y>
-            <width>251</width>
+            <width>110</width>
             <height>41</height>
            </rect>
           </property>
@@ -676,7 +656,7 @@ background-color: rgba(0, 0, 0,0);
           </size>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="activityPage">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1324,7 +1304,7 @@ background-color: rgba(0, 0, 0,0);
               <property name="geometry">
                <rect>
                 <x>300</x>
-                <y>164</y>
+                <y>100</y>
                 <width>71</width>
                 <height>71</height>
                </rect>
@@ -1352,7 +1332,7 @@ border-radius: 10px</string>
               <property name="geometry">
                <rect>
                 <x>724</x>
-                <y>457</y>
+                <y>350</y>
                 <width>71</width>
                 <height>71</height>
                </rect>
@@ -1380,7 +1360,7 @@ border-radius: 10px</string>
               <property name="geometry">
                <rect>
                 <x>1090</x>
-                <y>460</y>
+                <y>380</y>
                 <width>71</width>
                 <height>71</height>
                </rect>
@@ -1488,38 +1468,129 @@ border-radius: 10px</string>
                <set>Qt::AlignCenter</set>
               </property>
              </widget>
-             <widget class="QLabel" name="cumFlow1">
+             <widget class="QLabel" name="SCumF">
               <property name="geometry">
                <rect>
-                <x>380</x>
-                <y>350</y>
-                <width>251</width>
-                <height>41</height>
+                <x>490</x>
+                <y>30</y>
+                <width>159</width>
+                <height>39</height>
                </rect>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;
+               <string notr="true">color: rgb(129, 0, 0);
 background-color: rgba(0, 0, 0, 0);</string>
               </property>
               <property name="text">
-               <string/>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
-             <widget class="QLabel" name="cumFlow2">
+             <widget class="QLabel" name="HCumF">
               <property name="geometry">
                <rect>
                 <x>480</x>
-                <y>40</y>
-                <width>251</width>
-                <height>41</height>
+                <y>340</y>
+                <width>159</width>
+                <height>39</height>
                </rect>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;
+               <string notr="true">color: rgb(129, 0, 0);
 background-color: rgba(0, 0, 0, 0);</string>
               </property>
               <property name="text">
-               <string/>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="CRLev">
+              <property name="geometry">
+               <rect>
+                <x>255</x>
+                <y>210</y>
+                <width>159</width>
+                <height>39</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(129, 0, 0);
+background-color: rgba(0, 0, 0, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="KRLev">
+              <property name="geometry">
+               <rect>
+                <x>682</x>
+                <y>490</y>
+                <width>159</width>
+                <height>39</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(129, 0, 0);
+background-color: rgba(0, 0, 0, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="ARLev">
+              <property name="geometry">
+               <rect>
+                <x>1049</x>
+                <y>490</y>
+                <width>159</width>
+                <height>39</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(129, 0, 0);
+background-color: rgba(0, 0, 0, 0);</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </widget>
